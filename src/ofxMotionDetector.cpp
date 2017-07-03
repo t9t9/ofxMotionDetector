@@ -49,7 +49,7 @@ void ofxMotionDetector::update(){
 	vidGrabber.update();
 
 	if (vidGrabber.isFrameNew()){
-		colorImg.setFromPixels(vidGrabber.getPixels(), w, h);
+		colorImg.setFromPixels(vidGrabber.getPixels());
 		colorImg.mirror( vMirror, hMirror );
 
 		grayImg = colorImg;		
