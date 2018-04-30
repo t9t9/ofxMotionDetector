@@ -14,11 +14,12 @@ ofxMotionDetector::ofxMotionDetector(){
 	isMotionDetected = false;
 }
 
-void ofxMotionDetector::setup(int camW, int camH){
+void ofxMotionDetector::setup(int camW, int camH, int cameraDeviceID){
 
 	w = camW;
 	h = camH;
 
+	vidGrabber.setDeviceID(cameraDeviceID);
 	vidGrabber.setVerbose(true);
 	vidGrabber.initGrabber(w,h);
 

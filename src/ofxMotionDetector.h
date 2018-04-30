@@ -12,7 +12,7 @@ class ofxMotionDetector{
 public:
 	ofxMotionDetector();
 
-	void			setup(int camW=640, int camH=480);
+	void			setup(int camW=640, int camH=480, int cameraDeviceID = 0);
 	void			update();
 	void			draw();
 	void			save();
