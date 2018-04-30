@@ -14,11 +14,12 @@ ofxMotionDetector::ofxMotionDetector(){
 	isMotionDetected = false;
 }
 
-void ofxMotionDetector::setup(int camW, int camH){
+void ofxMotionDetector::setup(int camW, int camH, int cameraDeviceID){
 
 	w = camW;
 	h = camH;
 
+	vidGrabber.setDeviceID(cameraDeviceID);
 	vidGrabber.setVerbose(true);
 	vidGrabber.initGrabber(w,h);
 
@@ -49,7 +50,7 @@ void ofxMotionDetector::update(){
 	vidGrabber.update();
 
 	if (vidGrabber.isFrameNew()){
-		colorImg.setFromPixels(vidGrabber.getPixels(), w, h);
+		colorImg.setFromPixels(vidGrabber.getPixels());
 		colorImg.mirror( vMirror, hMirror );
 
 		grayImg = colorImg;		
